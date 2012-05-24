@@ -1,4 +1,5 @@
 Spree::BaseController.class_eval do
+  layout 'initial'
   before_filter :set_locale, :if => proc { !session[:locale] }
 
   protected
