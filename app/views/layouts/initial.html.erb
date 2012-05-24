@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rodamoto</title>
+  <%= stylesheet_link_tag    "spree_change_locale", :media => "all" %>
+  <%= javascript_include_tag "spree_change_locale" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<ul id="locale_bar">
+<% enabled_locales.each do |locale| %>
+  <%= content_tag :li, link_to_locale(locale), :class => current_locale?(locale) ? 'selected' : nil %>
+<% end %>
+</ul>
+
+</body>
+</html>
