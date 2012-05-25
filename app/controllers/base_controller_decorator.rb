@@ -4,7 +4,7 @@ Spree::BaseController.class_eval do
 
   def set_settings
     unless session[:locale]
-      redirect_to locale_path and return
+      redirect_to change_locale_path and return
     end
   end 
   
