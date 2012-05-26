@@ -4,7 +4,7 @@ Spree::BaseController.class_eval do
 
   def set_settings
     if session[:locale].nil?
-      redirect_to :controller => "locale", :action => "set"
+      render :controller => "locale", :action => "set"
     end
   end 
   
