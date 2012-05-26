@@ -5,8 +5,4 @@ class LocaleController < Spree::BaseController
     redirect_to products_path
   end
   
-  protected
-  def set_locale
-    session[:locale] = I18n.locale = (request.preferred_language_from(I18n.enabled_locales) || request.compatible_language_from(I18n.enabled_locales) || I18n.default_locale).to_sym
-  end
 end

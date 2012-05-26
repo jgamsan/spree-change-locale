@@ -1,10 +1,10 @@
 Spree::BaseController.class_eval do
-  helper LocaleHelper
-  before_filter :set_settings, :if => proc { !session[:locale] }
+  
+  before_filter :myapp_force_current_user
 
-  def set_settings
-    if session[:locale].nil?
-      render :controller => "locale", :action => "set"
+  def myapp_force_current_user
+    unless current_user
+      redirect_to new_user_session_url and return
     end
   end 
   
