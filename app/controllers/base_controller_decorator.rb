@@ -1,10 +1,10 @@
 Spree::BaseController.class_eval do
   
-  before_filter :myapp_force_current_user
+  before_filter :myapp_force_get_settings
 
-  def myapp_force_current_user
-    unless current_user
-      redirect_to new_user_session_url and return
+  def myapp_force_get_settings
+    if session[:idioma].nil?
+      redirect_to get_country_settings_url and return
     end
   end 
   
