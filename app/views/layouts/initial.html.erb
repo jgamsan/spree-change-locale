@@ -11,6 +11,11 @@
 <ul id="locale_bar">
 <h1>Prueba de presentacion</h1>
 </ul>
+<ul id="locale_bar">
+<% enabled_locales.each do |locale| %>
+  <%= content_tag :li, link_to_locale(locale), :class => current_locale?(locale) ? 'selected' : nil %>
+<% end %>
+</ul>
 <%= link_to 'Volver', root_url  %>
 
 </body>
