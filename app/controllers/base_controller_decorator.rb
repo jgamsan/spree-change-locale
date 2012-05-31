@@ -1,11 +1,10 @@
 Spree::BaseController.class_eval do
   
-  before_filter :myapp_force_get_settings
+  before_filter :set_locale, :if => proc { !session[:locale] }
 
-  def myapp_force_get_settings
-    if session[:idioma].nil?
-      redirect_to get_country_settings_url and return
-    end
-  end 
+  protected
+  def set_locale
+    session[:locale] = I18n.locale = (request.preferred_language_from(I18n.enabled_locales) || request.compatible_language_from(I18n.enabled_locales) || I18n.default_locale).to_sym
+  end
   
 end
