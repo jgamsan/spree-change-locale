@@ -1,4 +1,4 @@
-module spree
+module Spree
   class SettingsController < BaseController
     layout 'initial'
     def get_country_settings
